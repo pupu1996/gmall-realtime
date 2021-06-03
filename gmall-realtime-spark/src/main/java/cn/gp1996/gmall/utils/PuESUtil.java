@@ -6,10 +6,17 @@ import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.config.HttpClientConfig;
 import io.searchbox.core.Bulk;
 import io.searchbox.core.Index;
+import io.searchbox.core.Search;
+import io.searchbox.core.SearchResult;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.MatchQueryBuilder;
+import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -129,9 +136,9 @@ public class PuESUtil {
 
 
     // 测试ES工具类
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // 1.获取客户端连接
-        final JestClient client = getClient();
+        final JestClient jestClient = getClient();
         // 2.测试插入单条数据
         final String data1 = "{\n" +
                 "  \"id\":\"1002\",\n" +
@@ -140,7 +147,6 @@ public class PuESUtil {
         final String index = "movie_test";
         final String docId = "1002";
 
-        insert(client, data1, index, docId);
 
         // 3.测试批量插入请求
         final String data2 = "{\n" +
@@ -159,10 +165,6 @@ public class PuESUtil {
         final ArrayList<String> ids = new ArrayList<>();
         ids.add("1003");
         ids.add("1004");
-
-        //insertBulk(client, datas, "movie_test1", ids);
-
-        closeClient(client);
     }
 
 }

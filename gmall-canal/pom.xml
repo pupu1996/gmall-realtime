@@ -30,6 +30,13 @@
             <version>1.1.2</version>
         </dependency>
 
+        <!-- 编写pojo的工具类 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+        </dependency>
+
     </dependencies>
 
 </project>
