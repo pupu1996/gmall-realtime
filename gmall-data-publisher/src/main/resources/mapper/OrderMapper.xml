@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- DauMapper的实现配置 -->
+<mapper namespace="cn.gp1996.gmall.publisher.mapper.OrderMapper">
+    <!-- id对应mapper中的抽象方法 ,resultType对应返回值类型-->
+    <!--#{xxx},指参数-->
+    <!-- 返回每日日活 -->
+    <!-- 返回类型都是包装类型 -->
+
+<!--    <select id="selectDauTotal" resultType="Integer">-->
+<!--        select count(*) from GMALL_DAU where logdate=#{date}-->
+<!--    </select>-->
+<!--    &lt;!&ndash; 返回每天每小时的日活 &ndash;&gt;-->
+<!--    &lt;!&ndash; 这里的返回值是一个复杂类型(Map)，需要在外面定义 &ndash;&gt;-->
+<!--    <select id="selectDauTotalHourMap" resultMap="dauTotalHour">-->
+<!--        select LOGHOUR lh, count(*) ct from GMALL_DAU where  LOGDATE=#{date}-->
+<!--        group by LOGHOUR-->
+<!--    </select>-->
+
+<!--    <resultMap id="dauTotalHour" type="java.util.Map" autoMapping="true">-->
+<!--    </resultMap>-->
+
+    <select id="selectOrderAmountTotal" resultType="Double">
+        select sum(TOTAL_AMOUNT) TA from GMALL_ORDER_INFO where CREATE_DATE=#{date}
+    </select>
+
+    <select id="selectOrderAmountTotalHour" resultMap="orderAmountHour">
+        select CREATE_HOUR CH,sum(TOTAL_AMOUNT) TA from GMALL_ORDER_INFO where CREATE_DATE=#{date}
+        group by CREATE_HOUR
+    </select>
+
+    <resultMap id="orderAmountHour" type="java.util.Map" autoMapping="true">
+    </resultMap>
+</mapper>

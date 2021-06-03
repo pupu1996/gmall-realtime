@@ -1,0 +1,4 @@
+cn\gp1996\gmall\constants\GmallConstants.class
+cn\gp1996\gmall\utils\DateUtil.class
+cn\gp1996\gmall\utils\KafkaUtil.class
+cn\gp1996\gmall\utils\PropertiesUtil.class

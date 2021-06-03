@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gmall-canal" />
+        <module name="gmall-data-publisher" />
+        <module name="gmall-realtime-spark" />
+        <module name="dw-chart" />
+        <module name="gmall-realtime-flink" />
+        <module name="gmall-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="dw-chart" options="-parameters" />
+      <module name="gmall-data-publisher" options="-parameters" />
+    </option>
+  </component>
+</project>
